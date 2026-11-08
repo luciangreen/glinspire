@@ -1,0 +1,9 @@
+{
+  "name": "glinspire",
+  "version": "0.1.0",
+  "description": "GL Inspire: inspiring keywords and new directions for a text, scored in the open from Grammar Logic, your bio and recent texts (a Lucian Office plug-in, used in Writer)",
+  "type": "module",
+  "main": "plugin.js",
+  "scripts": { "test": "node --test test/*.test.js" },
+  "license": "BSD-3-Clause"
+}

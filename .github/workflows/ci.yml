@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: glinspire
+      - name: Check out the Lucian Office core beside GL Inspire, as in lucianos/apps
+        uses: actions/checkout@v4
+        with:
+          repository: luciangreen/lucianoffice
+          ref: main
+          ref: main
+          path: lucianoffice
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Unit tests
+        working-directory: glinspire
+        run: npm test

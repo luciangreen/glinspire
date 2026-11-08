@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GL Inspire</title>
+  <link rel="stylesheet" href="/shared/style.css">
+  <script type="module" src="app.js"></script>
+  <style>
+    body { margin: 0; }
+    main { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, 1fr); gap: 12px; padding: 12px; align-items: start; }
+    main .panel { margin: 0; min-width: 0; }
+    #text { width: 100%; box-sizing: border-box; min-height: 40vh; font: inherit; }
+    blockquote.inspiration { margin: .4em 0; padding: 6px 10px; border-left: 4px solid #e2a03f; background: #fff4e0; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+    .row input[type=text] { flex: 1; min-width: 0; }
+    .source textarea, .source input[type=text] { width: 100%; box-sizing: border-box; font: inherit; }
+    @media (max-width: 760px) { main { grid-template-columns: 1fr; padding: 8px; } }
+  </style>
+</head>
+<body>
+  <header class="bar"><h1>GL Inspire</h1><span class="spacer"></span><span class="quiet">Also inside Writer, as a tab</span></header>
+  <main>
+    <section class="panel">
+      <textarea id="text" placeholder="Paste or write a text to be inspired about."></textarea>
+      <h3>Inspirations</h3>
+      <div id="added"><p class="quiet">None yet.</p></div>
+    </section>
+    <aside class="panel" id="tool"></aside>
+  </main>
+  <p id="reply" class="quiet" aria-live="polite" style="margin:0 12px 14px"></p>
+</body>
+</html>
