@@ -17,7 +17,6 @@ jobs:
         with:
           repository: luciangreen/lucianoffice
           ref: main
-          ref: main
           path: lucianoffice
       - uses: actions/setup-node@v4
         with:
