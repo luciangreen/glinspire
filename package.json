@@ -4,6 +4,9 @@
   "description": "GL Inspire: inspiring keywords and new directions for a text, scored in the open from Grammar Logic, your bio and recent texts (a Lucian Office plug-in, used in Writer)",
   "type": "module",
   "main": "plugin.js",
-  "scripts": { "test": "node --test test/*.test.js" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "ios": "node io/make-ios.mjs"
+  },
   "license": "BSD-3-Clause"
 }
