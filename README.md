@@ -16,7 +16,7 @@ GL Inspire suggests inspiring keywords and new directions for the text.
   | --- | --- |
   | **new** | 1 ÷ how often the word appears in your inputs; words already in the text are never suggested |
   | **connected** | +2 for each word of the text it appears beside (up to 5); shared stems count too |
-  | **positive** | +1 for a positive word; negative words are not suggested |
+  | **positive** | +1 for a positive word; negative words are not suggested: those in its list, their forms ("fears", "sadness") and positive words with a negating prefix ("unhappy", "dishonest") |
   | **links** | +1.5 for each other new word it appears beside (up to 5), so it opens a direction rather than a dead end |
   | **focus** | +3 when it is near the focus you asked for |
 

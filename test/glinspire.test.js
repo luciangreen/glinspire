@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { inspire, readInstruction, claudePrompt, inspirationBlocks } from '../lib/inspire.js';
+import { inspire, isNegative, readInstruction, claudePrompt, inspirationBlocks } from '../lib/inspire.js';
 import { createTool, definition } from '../plugin.js';
 import { createDocument, createPlugins, undoLastBy } from '../lib/core.js';
 
@@ -69,4 +69,11 @@ test('the tool inspires a document through its host, from the bio and recent tex
   assert.match(r.say, /^Added 3 inspirations\./);
   assert.equal(r.doc.blocks.filter((b) => b.type === 'inspiration').length, 3);
   assert.equal(tool.last()[0].note, 'Grammar Logic is off');
+});
+
+test('negative words outside the list are still left out', () => {
+  const got = inspire({ text: 'The garden grows', gl: ['sad garden grows fear bloom unhappy awful garden grows dishonest light'] }).map((s) => s.word);
+  for (const w of ['sad', 'fear', 'unhappy', 'awful', 'dishonest']) assert.ok(!got.includes(w), w);
+  assert.ok(got.includes('bloom'));
+  assert.ok(isNegative('sadness') && isNegative('fears') && !isNegative('meaningful') && !isNegative('island') && !isNegative('discover'));
 });
